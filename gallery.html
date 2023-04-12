@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VH-Gallery</title>
+    <link rel="shortcut icon" href="Images/user.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <style>
+      .gallery {
+        margin: 100px 0;
+      }
+
+      input {
+        display: none;
+      }
+
+      .top-content {
+        background-color: #fff;
+        width: 80%;
+        margin: 20px auto;
+        height: 60px;
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 3px 3px 5px lightgray;
+      }
+      h3 {
+        height: 100%;
+        background-color: rgb(107, 128, 155);
+        line-height: 60px;
+        padding: 0 10px;
+        color: white;
+        font-size: 16px;
+        border-radius: 45px;
+      }
+      label {
+        display: inline-block;
+        font-size: 16px;
+        color: #888;
+        font-weight: bold;
+        cursor: pointer;
+        transition: color 0.5s;
+      }
+      label:hover {
+        color: rgb(107, 128, 155);
+      }
+      .photo-gallery {
+        width: 80%;
+        margin: 0 auto;
+        padding: 40px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 40px;
+      }
+      @media screen and (max-width: 950px) {
+        .photo-gallery {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        label {
+          font-size: 14px;
+        }
+      }
+      @media screen and (max-width: 880px) {
+        .top-content {
+          gap: 20px;
+        }
+      }
+      @media screen and (max-width: 700px) {
+        .photo-gallery {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .top-content {
+          justify-content: center;
+        }
+        h3 {
+          display: none;
+        }
+      }
+      @media screen and (max-width: 500px) {
+        .photo-gallery {
+          grid-template-columns: 1fr;
+        }
+        .top-content {
+          flex-wrap: wrap;
+        }
+        label {
+          font-size: 12px;
+        }
+      }
+      .pic {
+        position: relative;
+        height: 250px;
+        width: 100%;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.5s;
+        box-shadow: 5px 5px 10px lightgray;
+      }
+      .pic img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: 0.5s;
+      }
+
+      #check1:checked ~ .container .photo-gallery .pic {
+        opacity: 1;
+        transform: scale(1);
+        position: relative;
+        transition: 0.5s;
+      }
+      #check2:checked ~ .container .photo-gallery .iron {
+        opacity: 1;
+        transform: scale(1);
+        position: relative;
+      }
+      #check2:checked ~ .container .photo-gallery .wood,
+      #check2:checked ~ .container .photo-gallery .brass,
+      #check2:checked ~ .container .photo-gallery .glass,
+      #check2:checked ~ .container .photo-gallery .wares,
+      #check2:checked ~ .container .photo-gallery .candle,
+      #check2:checked ~ .container .photo-gallery .decor {
+        opacity: 0;
+        transform: scale(0);
+        position: absolute;
+        transition: 0s;
+      }
+      #check3:checked ~ .container .photo-gallery .brass {
+        opacity: 1;
+        transform: scale(1);
+        position: relative;
+      }
+      #check3:checked ~ .container .photo-gallery .wood,
+      #check3:checked ~ .container .photo-gallery .iron,
+      #check3:checked ~ .container .photo-gallery .glass,
+      #check3:checked ~ .container .photo-gallery .wares,
+      #check3:checked ~ .container .photo-gallery .candle,
+      #check3:checked ~ .container .photo-gallery .decor {
+        opacity: 0;
+        transform: scale(0);
+        position: absolute;
+        transition: 0s;
+      }
+      #check4:checked ~ .container .photo-gallery .wood {
+        opacity: 1;
+        transform: scale(1);
+        position: relative;
+      }
+      #check4:checked ~ .container .photo-gallery .brass,
+      #check4:checked ~ .container .photo-gallery .iron,
+      #check4:checked ~ .container .photo-gallery .glass,
+      #check4:checked ~ .container .photo-gallery .wares,
+      #check4:checked ~ .container .photo-gallery .candle,
+      #check4:checked ~ .container .photo-gallery .decor {
+        opacity: 0;
+        transform: scale(0);
+        position: absolute;
+        transition: 0s;
+      }
+      #check5:checked ~ .container .photo-gallery .candle {
+        opacity: 1;
+        transform: scale(1);
+        position: relative;
+      }
+      #check5:checked ~ .container .photo-gallery .wood,
+      #check5:checked ~ .container .photo-gallery .iron,
+      #check5:checked ~ .container .photo-gallery .glass,
+      #check5:checked ~ .container .photo-gallery .wares,
+      #check5:checked ~ .container .photo-gallery .brass,
+      #check5:checked ~ .container .photo-gallery .decor {
+        opacity: 0;
+        transform: scale(0);
+        position: absolute;
+        transition: 0s;
+      }
+      #check6:checked ~ .container .photo-gallery .glass {
+        opacity: 1;
+        transform: scale(1);
+        position: relative;
+      }
+      #check6:checked ~ .container .photo-gallery .wood,
+      #check6:checked ~ .container .photo-gallery .iron,
+      #check6:checked ~ .container .photo-gallery .brass,
+      #check6:checked ~ .container .photo-gallery .wares,
+      #check6:checked ~ .container .photo-gallery .candle,
+      #check6:checked ~ .container .photo-gallery .decor {
+        opacity: 0;
+        transform: scale(0);
+        position: absolute;
+        transition: 0s;
+      }
+      #check7:checked ~ .container .photo-gallery .decor {
+        opacity: 1;
+        transform: scale(1);
+        position: relative;
+      }
+      #check7:checked ~ .container .photo-gallery .wood,
+      #check7:checked ~ .container .photo-gallery .iron,
+      #check7:checked ~ .container .photo-gallery .glass,
+      #check7:checked ~ .container .photo-gallery .wares,
+      #check7:checked ~ .container .photo-gallery .candle,
+      #check7:checked ~ .container .photo-gallery .brass {
+        opacity: 0;
+        transform: scale(0);
+        position: absolute;
+        transition: 0s;
+      }
+
+      #check8:checked ~ .container .photo-gallery .wares {
+        opacity: 1;
+        transform: scale(1);
+        position: relative;
+      }
+      #check8:checked ~ .container .photo-gallery .wood,
+      #check8:checked ~ .container .photo-gallery .iron,
+      #check8:checked ~ .container .photo-gallery .glass,
+      #check8:checked ~ .container .photo-gallery .brass,
+      #check8:checked ~ .container .photo-gallery .candle,
+      #check8:checked ~ .container .photo-gallery .decor {
+        opacity: 0;
+        transform: scale(0);
+        position: absolute;
+        transition: 0s;
+      }
+
+      .container .popup-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.9);
+        height: 100%;
+        width: 100%;
+        z-index: 100;
+        display: none;
+      }
+      .container .popup-image span {
+        position: absolute;
+        top: 50%;
+        right: 20%;
+        font-size: 40px;
+        font-weight: bolder;
+        color: #fff;
+        cursor: pointer;
+        z-index: 100;
+      }
+      .container .popup-image span:hover {
+        color: rgb(107, 128, 155);
+      }
+      .container .popup-image img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 5px solid #fff;
+        border-radius: 5px;
+        object-fit: cover;
+      }
+      @media (max-width: 768px) {
+        .container .popup-image img {
+          width: 95%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+      <!-- This is the Welcome Message with FAQ and SiteMap -->
+      <div class="welcome_nav">
+        <div class="welcome_nav_content_wrapper">
+          <p>Step into the world of artisanal crafts and handmade wonders</p>
+          <div class="welcome_nav_action_wrapper">
+            <div><a href="./faq.html" target="_self">FAQs</a></div>
+            <span>|</span>
+            <div><a href="./sitemap.html" target="_self">Site map</a></div>
+          </div>
+        </div>
+      </div>
+      <!-- Navbar and Logo and Icons -->
+      <nav class="navbar">
+        <div class="nav_content_wrapper">
+          <img src="Images/vh-logo.png" class="vh-logo" alt="" />
+  
+          <!-- <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <ion-icon name="grid-outline"></ion-icon>
+          </a> -->
+          <ul class="nav_list" id="nav_list">
+            <li><a href="./index.html" target="_self">Home</a></li>
+            <li><a href="./product.html" target="_self">Shop</a></li>
+            <li><a href="./gallery.html" target="_self">Gallery</a></li>
+            <li><a href="./about.html" target="_self">About</a></li>
+            <li><a href="./contact.html" target="_self">Contact</a></li>
+          </ul>
+  
+          <div class="nav_icon_wrapper" id="nav_icon_wrapper">
+            <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+          </div>
+        </div>
+      </nav>
+
+    <section
+      class="bg-img"
+      style="
+        background-image: url('Images/green-twig-near-decorative-snags-baubles.jpg');
+      "
+    >
+      <h2 class="txt-center animate__animated animate__rollIn">Gallery</h2>
+    </section>
+    <!-- Gallery Part -->
+    <section class="gallery">
+      <input type="radio" name="Products" id="check1" checked />
+      <input type="radio" name="Products" id="check2" />
+      <input type="radio" name="Products" id="check3" />
+      <input type="radio" name="Products" id="check4" />
+      <input type="radio" name="Products" id="check5" />
+      <input type="radio" name="Products" id="check6" />
+      <input type="radio" name="Products" id="check7" />
+      <input type="radio" name="Products" id="check8" />
+      <div class="container">
+        <div class="top-content">
+          <h3>Products</h3>
+          <label for="check1">All</label><label for="check2">Iron</label
+          ><label for="check3">Brass</label><label for="check4">Wood</label
+          ><label for="check5">Candle</label><label for="check6">Glass</label
+          ><label for="check7">Decor</label
+          ><label for="check8">Table Wares</label>
+        </div>
+        <div class="photo-gallery">
+          <div class="pic wood">
+            <img src="Images/angel.png" alt="" />
+          </div>
+          <div class="pic decor">
+            <img src="Images/bag.png" alt="" />
+          </div>
+          <div class="pic wood">
+            <img src="Images/buddha.png" alt="" />
+          </div>
+          <div class="pic candle">
+            <img src="Images/candil.png" alt="" />
+          </div>
+          <div class="pic wares">
+            <img src="Images/cart.png" alt="" />
+          </div>
+          <div class="pic brass">
+            <img src="Images/ceramic.png" alt="" />
+          </div>
+          <div class="pic wood">
+            <img src="Images/chair.png" alt="" />
+          </div>
+          <div class="pic iron">
+            <img src="Images/elephant.png" alt="" />
+          </div>
+          <div class="pic iron">
+            <img src="Images/elephant2.png" alt="" />
+          </div>
+          <div class="pic iron">
+            <img src="Images/fantasy.png" alt="" />
+          </div>
+          <div class="pic decor">
+            <img src="Images/christmas.png" alt="" />
+          </div>
+          <div class="pic decor">
+            <img src="Images/crochet.png" alt="" />
+          </div>
+          <div class="pic decor">
+            <img src="Images/decor.png" alt="" />
+          </div>
+          <div class="pic decor">
+            <img src="Images/doll.png" alt="" />
+          </div>
+          <div class="pic brass">
+            <img src="Images/dragon.png" alt="" />
+          </div>
+          <div class="pic glass">
+            <img src="Images/geode.png" alt="" />
+          </div>
+          <div class="pic decor">
+            <img src="Images/guatemela.png" alt="" />
+          </div>
+        </div>
+        <div class="popup-image">
+          <span>&times;</span>
+          <img src="" alt="" />
+        </div>
+      </div>
+    </section>
+    <!-- Footer Part -->
+    <footer class="footer" id="footer">
+      <div class="footer-container">
+        <div class="one">
+          <img src="Images/vh-logo.png" class="footer-logo" alt="" />
+          <p>
+            Explore our curated selection of handmade items.<br />
+            Welcome to Venus Handicrafts.
+          </p>
+          <div class="socials">
+            <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+          </div>
+        </div>
+        <div class="two">
+          <h2>Product</h2>
+          <ul class="box">
+            <li><a href="product.html" target="_self">Iron</a></li>
+            <li><a href="product.html" target="_self">Wood</a></li>
+            <li><a href="product.html" target="_self">Candle</a></li>
+            <li><a href="product.html" target="_self">Home Decor</a></li>
+            <li><a href="product.html" target="_self">Brass</a></li>
+          </ul>
+        </div>
+        <div class="three">
+          <h2>Useful Links</h2>
+          <ul class="box">
+            <li><a href="faq.html" target="_self">FAQs</a></li>
+            <li><a href="index.html" target="_self">Home</a></li>
+            <li><a href="product.html" target="_self">Shop</a></li>
+            <li><a href="gallery.html" target="_self">Gallery</a></li>
+            <li><a href="about.html" target="_self">About</a></li>
+            <li><a href="contact.html" target="_self">Contact</a></li>
+          </ul>
+        </div>
+        <div class="four">
+          <h2>Address</h2>
+          <ul class="box">
+            <li>New Delhi</li>
+            <li>United Kingdom</li>
+            <li>London</li>
+            <li>Dubai</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>All Right Reserved by &copy;Venus Handicraft 2023</p>
+      </div>
+    </footer>
+   <!-- Ion Icon cdn -->
+   <script
+   type="module"
+   src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+ ></script>
+ <script
+   nomodule
+   src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+ ></script>
+ <!-- js file -->
+ <script src="index.js"></script>
+    <script>
+      document.querySelectorAll(".photo-gallery img").forEach((image) => {
+        image.onclick = () => {
+          document.querySelector(".popup-image").style.display = "block";
+          document.querySelector(".popup-image img").src =
+            image.getAttribute("src");
+        };
+      });
+      document.querySelector(".popup-image span").onclick = () => {
+        document.querySelector(".popup-image").style.display = "none";
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help & FAQS</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: sans-serif;
+        background: #1c1c1c;
+        color: #fff;
+      }
+      section {
+        min-height: 100vh;
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .title {
+        font-size: 2.2rem;
+        margin: 4rem 0rem;
+      }
+      .home {
+        font-size: 1.2rem;
+        color: #fff;
+        margin: 4rem 0rem;
+        text-decoration: none;
+      }
+      .home:hover {
+        
+        color: #ffffffee;
+        text-decoration: underline;
+        margin: 4rem 0rem;
+      }
+      .faq {
+        max-width: 700px;
+        margin-top: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #fff;
+        cursor: pointer;
+      }
+      .question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .question h3 {
+        font-size: 1.5rem;
+      }
+      .answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 1.4s ease;
+      }
+      .answer p {
+        padding-top: 1rem;
+        line-height: 1.6;
+        font-size: 1.2rem;
+      }
+      .faq.active .answer {
+        max-height: 300px;
+        animation: fade 2s ease-in-out;
+      }
+      .faq.active ion-icon {
+        transform: rotate(180deg);
+      }
+      ion-icon {
+        transition: transform 0.5s ease-in;
+        font-size: 1.5rem;
+      }
+      @keyframes fade {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2 class="title">FAQs/<a href="./index.html" class="home">Home</a></h2>
+      <div class="faq">
+        <div class="question">
+          <h3>How do I place an order for a handicraft item?</h3>
+          <ion-icon name="chevron-down-outline"></ion-icon>
+        </div>
+        <div class="answer">
+          <p>
+            To place an order for a handicraft item, simply browse our online
+            catalog and add the desired item(s) to your cart. Once you have
+            finished selecting your items, proceed to the checkout page and
+            provide your contact and payment information.
+          </p>
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">
+          <h3>How long does it take to process an order?</h3>
+          <ion-icon name="chevron-down-outline"></ion-icon>
+        </div>
+        <div class="answer">
+          <p>
+            We typically process orders within 1-2 business days after payment
+            confirmation. However, please note that processing times may vary
+            depending on the item and quantity ordered.
+          </p>
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">
+          <h3>Can I make a custom request for a specific item?</h3>
+          <ion-icon name="chevron-down-outline"></ion-icon>
+        </div>
+        <div class="answer">
+          <p>
+            Yes, we offer custom orders for specific handicraft items. Please
+            contact us with your request and we will work with you to create a
+            personalized product that meets your needs.
+          </p>
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">
+          <h3>What is your return policy?</h3>
+          <ion-icon name="chevron-down-outline"></ion-icon>
+        </div>
+        <div class="answer">
+          <p>
+            We offer a 14-day return policy on all handicraft items purchased on
+            our website. If you are not satisfied with your purchase, please
+            contact us to initiate the return process and receive process and
+            receive a full refund or exchange.
+          </p>
+        </div>
+      </div>
+      <div class="faq">
+        <div class="question">
+          <h3>How can I contact your customer service team?</h3>
+          <ion-icon name="chevron-down-outline"></ion-icon>
+        </div>
+        <div class="answer">
+          <p>
+            You can contact our customer service team by email or through our
+            website's contact form. We strive to respond to all inquiries within
+            24-28 hours during business days.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const faqs = document.querySelectorAll(".faq");
+      faqs.forEach((faq) => {
+        faq.addEventListener("click", () => {
+          faq.classList.toggle("active");
+        });
+      });
+    </script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

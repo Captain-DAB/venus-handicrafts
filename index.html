@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Venus-H</title>
+    <link rel="shortcut icon" href="Images/user.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body>
+    <!-- This is the Welcome Message with FAQ and SiteMap -->
+    <div class="welcome_nav">
+      <div class="welcome_nav_content_wrapper">
+        <p>Step into the world of artisanal crafts and handmade wonders</p>
+        <div class="welcome_nav_action_wrapper">
+          <div><a href="./faq.html" target="_self">FAQs</a></div>
+          <span>|</span>
+          <div><a href="./sitemap.html" target="_self">Site map</a></div>
+        </div>
+      </div>
+    </div>
+    <!-- Navbar and Logo and Icons -->
+    <nav class="navbar">
+      <div class="nav_content_wrapper">
+        <img src="Images/vh-logo.png" class="vh-logo" alt="" />
+
+        <!-- <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <ion-icon name="grid-outline"></ion-icon>
+        </a> -->
+        <ul class="nav_list" id="nav_list">
+          <li><a href="./index.html" target="_self">Home</a></li>
+          <li><a href="./product.html" target="_self">Shop</a></li>
+          <li><a href="./gallery.html" target="_self">Gallery</a></li>
+          <li><a href="./about.html" target="_self">About</a></li>
+          <li><a href="./contact.html" target="_self">Contact</a></li>
+        </ul>
+
+        <div class="nav_icon_wrapper" id="nav_icon_wrapper">
+          <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+          <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+          <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+          <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero_section" id="welcome">
+      <div class="hero_text_content_wrapper">
+        <p class="animate__animated animate__backInDown">
+          We Make Things With Love
+        </p>
+        <h2 class="animate__animated animate__wobble">V.Handicrafts</h2>
+        <p class="animate__animated animate__backInUp">
+          Step into a world of timeless beauty and cultural richness with our
+          handmade handicrafts, crafted with passion and skill by artisans who
+          have passed down their techniques and traditions from generation to
+          generation.
+        </p>
+        <a href="./product.html" class="animate_animated animate_rotateIn">
+          Explore Shop
+        </a>
+      </div>
+
+      <!-- <div class="hero_action_btn_wrapper">
+        <div class="previous">prev</div>
+        <div class="next">next</div>
+      </div> -->
+    </section>
+    <!-- This is jumbotron part describing Number range of work and achievement -->
+    <div class="jumbotron">
+      <div class="customer">
+        <div>
+          <i class="fa fa-face-smile"></i>
+        </div>
+        <div>
+          <span class="num" data-val="1040">000</span>
+          <h2>Happy Customers</h2>
+        </div>
+      </div>
+      <div class="customer">
+        <div>
+          <i class="fas fa-pen-nib"></i>
+        </div>
+        <div>
+          <span class="num" data-val="2002">000</span>
+          <h2>Handicrafts Sold</h2>
+        </div>
+      </div>
+      <div class="customer">
+        <div>
+          <i class="fas fa-star"></i>
+        </div>
+        <div>
+          <span class="num" data-val="10">000</span>
+          <h2>Number of Stars</h2>
+        </div>
+      </div>
+      <div class="customer">
+        <div>
+          <i class="fas fa-star"></i>
+        </div>
+        <div>
+          <span class="num" data-val="34">000</span>
+          <h2>Awards won</h2>
+        </div>
+      </div>
+    </div>
+    <!-- Items  -->
+    <section id="items">
+      <div class="wrapper">
+        <h2>Our Items</h2>
+        <div id="search-container">
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Search product name here.."
+          />
+          <button id="search">Search</button>
+        </div>
+        <div id="buttons">
+          <button class="button-value" onclick="filterProduct('all')">
+            All
+          </button>
+          <button class="button-value" onclick="filterProduct('Iron')">
+            Iron
+          </button>
+          <button class="button-value" onclick="filterProduct('Glass')">
+            Glass
+          </button>
+          <button class="button-value" onclick="filterProduct('Brass')">
+            Brass
+          </button>
+          <button class="button-value" onclick="filterProduct('Wood')">
+            Wood
+          </button>
+          <button class="button-value" onclick="filterProduct('Decorative')">
+            Decorative
+          </button>
+          <button class="button-value" onclick="filterProduct('Candle')">
+            Candle
+          </button>
+        </div>
+        <a
+          href="./product.html"
+          style="text-decoration: none"
+          rel="noopener noreferrer"
+          ><div id="products"></div
+        ></a>
+      </div>
+    </section>
+    <!-- Footer Part -->
+    <footer class="footer" id="footer">
+      <div class="footer-container">
+        <div class="one">
+          <img src="Images/vh-logo.png" class="footer-logo" alt="" />
+          <p>
+            Explore our curated selection of handmade items.<br />
+            Welcome to Venus Handicrafts.
+          </p>
+          <div class="socials">
+            <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+          </div>
+        </div>
+        <div class="two">
+          <h2>Product</h2>
+          <ul class="box">
+            <li><a href="product.html" target="_self">Iron</a></li>
+            <li><a href="product.html" target="_self">Wood</a></li>
+            <li><a href="product.html" target="_self">Candle</a></li>
+            <li><a href="product.html" target="_self">Home Decor</a></li>
+            <li><a href="product.html" target="_self">Brass</a></li>
+          </ul>
+        </div>
+        <div class="three">
+          <h2>Useful Links</h2>
+          <ul class="box">
+            <li><a href="faq.html" target="_self">FAQs</a></li>
+            <li><a href="index.html" target="_self">Home</a></li>
+            <li><a href="product.html" target="_self">Shop</a></li>
+            <li><a href="gallery.html" target="_self">Gallery</a></li>
+            <li><a href="about.html" target="_self">About</a></li>
+            <li><a href="contact.html" target="_self">Contact</a></li>
+          </ul>
+        </div>
+        <div class="four">
+          <h2>Address</h2>
+          <ul class="box">
+            <li>New Delhi</li>
+            <li>United Kingdom</li>
+            <li>London</li>
+            <li>Dubai</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>All Right Reserved by &copy;Venus Handicraft 2023</p>
+      </div>
+    </footer>
+    <script>
+      //   // Get the navbar element
+      //   const navbar = document.querySelector(".navbar");
+
+      //   // Get the offset position of the navbar
+      //   const navbarOffsetTop = navbar.offsetTop;
+
+      //   function handleScroll() {
+      //     // Get the current vertical scroll position
+      //     const scrollPosition = window.pageYOffset;
+
+      //     // Check if the user has scrolled past the navbar
+      //     if (scrollPosition >= navbarOffsetTop) {
+      //       // If the user has scrolled past the navbar, add the "sticky" class to the navbar
+      //       navbar.classList.add("sticky");
+      //     } else {
+      //       navbar.classList.remove("sticky");
+      //     }
+      //   }
+
+      //   window.addEventListener("scroll", handleScroll);
+      //
+    </script>
+    <!-- Ion Icon cdn -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- js file -->
+    <script src="index.js"></script>
+  </body>
+</html>

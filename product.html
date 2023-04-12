@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VH-Product</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="shortcut icon" href="Images/user.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-transform: capitalize;
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+        transition: all 0.4s cubic-bezier(0, 1.57, 0.67, 1.18);
+      }
+      .box-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        /* background: #ccc; */
+        margin: 100px 70px;
+      }
+      .product-box {
+        flex: 1 1 300px;
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+        margin: 20px;
+      }
+      .product-box .image {
+        padding: 10px;
+        background: #eee;
+        text-align: center;
+      }
+      .product-box .image img {
+        height: 200px;
+        width: 250px;
+        object-fit: cover;
+        filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.7));
+      }
+      .product-box .info .title {
+        padding: 10px;
+        color: #888;
+        font-size: 20px;
+      }
+      .product-box .info .subInfo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 10px;
+        border-top: 1px solid rgba(0, 0, 0, 0.3);
+      }
+      .product-box .info .description {
+        color: #888;
+        text-align: center;
+        word-spacing: 1.5px;
+        line-height: 35px;
+        border-top: 1px solid rgba(0, 0, 0, 0.3);
+      }
+      .product-box .info .subInfo .price {
+        color: rgb(107, 128, 155);
+        font-size: 20px;
+      }
+      .product-box .info .subInfo .price span {
+        color: #888;
+        text-decoration: line-through;
+        font-size: 15px;
+      }
+      .product-box .info .subInfo .stars i {
+        color: orange;
+        font-size: 17px;
+      }
+      .product-box .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 223px;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: none;
+        transform: scale(0);
+      }
+      .product-box:hover .overlay {
+        transform: scale(1);
+      }
+      .product-box .overlay a {
+        color: #888;
+        font-size: 25px;
+        background: #fff;
+        margin: 10px;
+        padding: 13px 15px;
+        transform: translateY(-150px);
+        transition-property: transform;
+        transition-delay: calc(0.1s * var(--i));
+      }
+      .product-box .overlay a:hover {
+        color: rgb(107, 128, 155);
+      }
+      .product-box:hover .overlay a {
+        transform: translateY(0px);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- This is the Welcome Message with FAQ and SiteMap -->
+    <div class="welcome_nav">
+      <div class="welcome_nav_content_wrapper">
+        <p>Step into the world of artisanal crafts and handmade wonders</p>
+        <div class="welcome_nav_action_wrapper">
+          <div><a href="./faq.html" target="_self">FAQs</a></div>
+          <span>|</span>
+          <div><a href="./sitemap.html" target="_self">Site map</a></div>
+        </div>
+      </div>
+    </div>
+    <!-- Navbar and Logo and Icons -->
+    <nav class="navbar">
+      <div class="nav_content_wrapper">
+        <img src="Images/vh-logo.png" class="vh-logo" alt="" />
+
+        <!-- <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <ion-icon name="grid-outline"></ion-icon>
+        </a> -->
+        <ul class="nav_list" id="nav_list">
+          <li><a href="./index.html" target="_self">Home</a></li>
+          <li><a href="./product.html" target="_self">Shop</a></li>
+          <li><a href="./gallery.html" target="_self">Gallery</a></li>
+          <li><a href="./about.html" target="_self">About</a></li>
+          <li><a href="./contact.html" target="_self">Contact</a></li>
+        </ul>
+
+        <div class="nav_icon_wrapper" id="nav_icon_wrapper">
+          <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+          <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+          <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+          <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+        </div>
+      </div>
+    </nav>
+
+    <section
+      class="bg-img"
+      style="
+        background-image: url('Images/green-twig-near-decorative-snags-baubles.jpg');
+      "
+    >
+      <h2 class="txt-center animate__animated animate__rollIn">
+        Handicraft Products
+      </h2>
+    </section>
+    <!-- Handicraft Products -->
+    <section class="box-container">
+      <div class="product-box">
+        <div class="image">
+          <img src="Images/wood.jpg" alt="" />
+        </div>
+        <div class="info">
+          <h3 class="title">WoodWork</h3>
+          <div class="subInfo">
+            <div class="price">$0000/- <span>$0000/-</span></div>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star-half"></i>
+            </div>
+          </div>
+          <div class="description">
+            <p>
+              Hand-carved wooden bowls, spoons, furniture, and decorative items
+              made with various types of wood.
+            </p>
+          </div>
+        </div>
+        <div class="overlay">
+          <a href="#" style="--i: 1" class="fas fa-shopping-cart"></a
+          ><a href="#" style="--i: 2" class="fas fa-heart"></a
+          ><a href="#" style="--i: 3" class="fas fa-search"></a>
+        </div>
+      </div>
+      <div class="product-box">
+        <div class="image">
+          <img src="Images/jewelry.jpg" alt="" />
+        </div>
+        <div class="info">
+          <h3 class="title">Jewelry</h3>
+          <div class="subInfo">
+            <div class="price">$0000/- <span>$0000/-</span></div>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star-half"></i>
+            </div>
+          </div>
+          <div class="description">
+            <p>
+              Handmade necklaces, earrings, bracelets, and rings made with
+              various materials such as beads, metals, and stones.
+            </p>
+          </div>
+        </div>
+        <div class="overlay">
+          <a href="#" style="--i: 1" class="fas fa-shopping-cart"></a
+          ><a href="#" style="--i: 2" class="fas fa-heart"></a
+          ><a href="#" style="--i: 3" class="fas fa-search"></a>
+        </div>
+      </div>
+      <div class="product-box">
+        <div class="image">
+          <img src="Images/textile.jpg" alt="" />
+        </div>
+        <div class="info">
+          <h3 class="title">Home Decor</h3>
+          <div class="subInfo">
+            <div class="price">$0000/- <span>$0000/-</span></div>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star-half"></i>
+            </div>
+          </div>
+          <div class="description">
+            <p>
+              Handwoven scarves, blankets, rugs, and other fabrics made with
+              natural fibers such as cotton, wool, and silk.
+            </p>
+          </div>
+        </div>
+        <div class="overlay">
+          <a href="#" style="--i: 1" class="fas fa-shopping-cart"></a
+          ><a href="#" style="--i: 2" class="fas fa-heart"></a
+          ><a href="#" style="--i: 3" class="fas fa-search"></a>
+        </div>
+      </div>
+      <div class="product-box">
+        <div class="image">
+          <img src="Images/pottery.jpg" alt="" />
+        </div>
+        <div class="info">
+          <h3 class="title">Pottery</h3>
+          <div class="subInfo">
+            <div class="price">$0000/- <span>$0000/-</span></div>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star-half"></i>
+            </div>
+          </div>
+          <div class="description">
+            <p>
+              Handcrafted ceramics, such as bowls, vases, mugs, and plates, made
+              with clay and other natural materials.
+            </p>
+          </div>
+        </div>
+        <div class="overlay">
+          <a href="#" style="--i: 1" class="fas fa-shopping-cart"></a
+          ><a href="#" style="--i: 2" class="fas fa-heart"></a
+          ><a href="#" style="--i: 3" class="fas fa-search"></a>
+        </div>
+      </div>
+      <div class="product-box">
+        <div class="image">
+          <img src="Images/leather.jpg" alt="" />
+        </div>
+        <div class="info">
+          <h3 class="title">Leather</h3>
+          <div class="subInfo">
+            <div class="price">$0000/- <span>$0000/-</span></div>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star-half"></i>
+            </div>
+          </div>
+          <div class="description">
+            <p>
+              Handmade leather bags, belts, shoes, and wallets crafted using
+              traditional procedures or techniques.
+            </p>
+          </div>
+        </div>
+        <div class="overlay">
+          <a href="#" style="--i: 1" class="fas fa-shopping-cart"></a
+          ><a href="#" style="--i: 2" class="fas fa-heart"></a
+          ><a href="#" style="--i: 3" class="fas fa-search"></a>
+        </div>
+      </div>
+      <div class="product-box">
+        <div class="image">
+          <img src="Images/paper.jpg" alt="" />
+        </div>
+        <div class="info">
+          <h3 class="title">Paper Crafts</h3>
+          <div class="subInfo">
+            <div class="price">$0000/- <span>$0000/-</span></div>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star-half"></i>
+            </div>
+          </div>
+          <div class="description">
+            <p>
+              Handmade paper, origami, scrapbooking, and other decorative items
+              made with paper and cardstock.
+            </p>
+          </div>
+        </div>
+        <div class="overlay">
+          <a href="#" style="--i: 1" class="fas fa-shopping-cart"></a
+          ><a href="#" style="--i: 2" class="fas fa-heart"></a
+          ><a href="#" style="--i: 3" class="fas fa-search"></a>
+        </div>
+      </div>
+      <div class="product-box">
+        <div class="image">
+          <img src="Images/metal.jpg" alt="" />
+        </div>
+        <div class="info">
+          <h3 class="title">Metalwork</h3>
+          <div class="subInfo">
+            <div class="price">$0000/- <span>$0000/-</span></div>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star-half"></i>
+            </div>
+          </div>
+          <div class="description">
+            <p>
+              Handcrafted metal jewelry, sculptures, and other decorative items
+              made with various metals such as copper, brass, and silver.
+            </p>
+          </div>
+        </div>
+        <div class="overlay">
+          <a href="#" style="--i: 1" class="fas fa-shopping-cart"></a
+          ><a href="#" style="--i: 2" class="fas fa-heart"></a
+          ><a href="#" style="--i: 3" class="fas fa-search"></a>
+        </div>
+      </div>
+      <div class="product-box">
+        <div class="image">
+          <img src="Images/painting.jpg" alt="" />
+        </div>
+        <div class="info">
+          <h3 class="title">Painting</h3>
+          <div class="subInfo">
+            <div class="price">$0000/- <span>$0000/-</span></div>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star-half"></i>
+            </div>
+          </div>
+          <div class="description">
+            <p>
+              Hand-painted canvases, portraits, and other artwork made with
+              various mediums such as oil, watercolor, and acrylic.
+            </p>
+          </div>
+        </div>
+        <div class="overlay">
+          <a href="#" style="--i: 1" class="fas fa-shopping-cart"></a
+          ><a href="#" style="--i: 2" class="fas fa-heart"></a
+          ><a href="#" style="--i: 3" class="fas fa-search"></a>
+        </div>
+      </div>
+      <div class="product-box">
+        <div class="image">
+          <img src="Images/quilt.jpg" alt="" />
+        </div>
+        <div class="info">
+          <h3 class="title">Quilts</h3>
+          <div class="subInfo">
+            <div class="price">$0000/- <span>$0000/-</span></div>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star-half"></i>
+            </div>
+          </div>
+          <div class="description">
+            <p>
+              These are handcrafted using a variety of techniques such as
+              patchwork, applique, and embroidery.
+            </p>
+          </div>
+        </div>
+        <div class="overlay">
+          <a href="#" style="--i: 1" class="fas fa-shopping-cart"></a
+          ><a href="#" style="--i: 2" class="fas fa-heart"></a
+          ><a href="#" style="--i: 3" class="fas fa-search"></a>
+        </div>
+      </div>
+      <div class="product-box">
+        <div class="image">
+          <img src="Images/candle.jpg" alt="" />
+        </div>
+        <div class="info">
+          <h3 class="title">Candle Making</h3>
+          <div class="subInfo">
+            <div class="price">$0000/- <span>$0000/-</span></div>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star-half"></i>
+            </div>
+          </div>
+          <div class="description">
+            <p>
+              Hand-poured candles and artisanal soaps made with natural
+              ingredients and scents.
+            </p>
+          </div>
+        </div>
+        <div class="overlay">
+          <a href="#" style="--i: 1" class="fas fa-shopping-cart"></a
+          ><a href="#" style="--i: 2" class="fas fa-heart"></a
+          ><a href="#" style="--i: 3" class="fas fa-search"></a>
+        </div>
+      </div>
+      <div class="product-box">
+        <div class="image">
+          <img src="Images/glass.jpg" alt="" />
+        </div>
+        <div class="info">
+          <h3 class="title">Glasswork</h3>
+          <div class="subInfo">
+            <div class="price">$0000/- <span>$0000/-</span></div>
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star-half"></i>
+            </div>
+          </div>
+          <div class="description">
+            <p>
+              Handblown glassware, stained glass windows, and other decorative
+              pieces made with glass.
+            </p>
+          </div>
+        </div>
+        <div class="overlay">
+          <a href="#" style="--i: 1" class="fas fa-shopping-cart"></a
+          ><a href="#" style="--i: 2" class="fas fa-heart"></a
+          ><a href="#" style="--i: 3" class="fas fa-search"></a>
+        </div>
+      </div>
+    </section>
+    <!-- Footer Part -->
+    <footer class="footer" id="footer">
+      <div class="footer-container">
+        <div class="one">
+          <img src="Images/vh-logo.png" class="footer-logo" alt="" />
+          <p>
+            Explore our curated selection of handmade items.<br />
+            Welcome to Venus Handicrafts.
+          </p>
+          <div class="socials">
+            <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+          </div>
+        </div>
+        <div class="two">
+          <h2>Product</h2>
+          <ul class="box">
+            <li><a href="product.html" target="_self">Iron</a></li>
+            <li><a href="product.html" target="_self">Wood</a></li>
+            <li><a href="product.html" target="_self">Candle</a></li>
+            <li><a href="product.html" target="_self">Home Decor</a></li>
+            <li><a href="product.html" target="_self">Brass</a></li>
+          </ul>
+        </div>
+        <div class="three">
+          <h2>Useful Links</h2>
+          <ul class="box">
+            <li><a href="faq.html" target="_self">FAQs</a></li>
+            <li><a href="index.html" target="_self">Home</a></li>
+            <li><a href="product.html" target="_self">Shop</a></li>
+            <li><a href="gallery.html" target="_self">Gallery</a></li>
+            <li><a href="about.html" target="_self">About</a></li>
+            <li><a href="contact.html" target="_self">Contact</a></li>
+          </ul>
+        </div>
+        <div class="four">
+          <h2>Address</h2>
+          <ul class="box">
+            <li>New Delhi</li>
+            <li>United Kingdom</li>
+            <li>London</li>
+            <li>Dubai</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>All Right Reserved by &copy;Venus Handicraft 2023</p>
+      </div>
+    </footer>
+    <!-- Ion Icon cdn -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- js file -->
+    <script src="index.js"></script>
+  </body>
+</html>

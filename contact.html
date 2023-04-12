@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="Images/user.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <title>VH-Contact</title>
+    <link rel="stylesheet" href="./style.css" />
+
+    <style>
+      .contactUs {
+        position: relative;
+        width: 100%;
+        padding: 40px 100px;
+        margin: 100px 0 100px 0;
+      }
+
+      .form {
+        grid-area: form;
+      }
+      .info {
+        grid-area: info;
+      }
+      .map {
+        grid-area: map;
+      }
+      .contact {
+        padding: 40px;
+        background: #fff;
+        box-shadow: 0 5px 35px rgba(0, 0, 0, 0.15);
+        /* border: 2px solid red; */
+      }
+      .contactBox {
+        position: relative;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 5fr 4fr;
+        grid-template-areas: "form info" "form map";
+        grid-gap: 60px;
+      }
+      .contact h3 {
+        color: #888;
+        font-weight: 700;
+        font-size: 1.1em;
+        margin-bottom: 10px;
+        letter-spacing: 2px;
+      }
+      /* Form */
+      .formBox {
+        position: relative;
+        width: 100%;
+      }
+      .formBox .row50 {
+        display: flex;
+        gap: 20px;
+      }
+      .inputBox {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        width: 50%;
+      }
+      .formBox .row100 .inputBox {
+        width: 100%;
+      }
+      .inputBox span {
+        color: rgb(107, 128, 155);
+        margin-top: 10px;
+        margin-bottom: 5px;
+        font-weight: 500;
+      }
+      .inputBox input {
+        padding: 8px;
+        font-size: 0.8em;
+        outline: none;
+        border: 2px solid whitesmoke;
+      }
+      .inputBox input:focus {
+        background-color: rgb(107, 128, 155);
+        color: white;
+      }
+
+      .inputBox textarea {
+        padding: 10px;
+        font-size: 0.8em;
+        outline: none;
+        border: 2px solid whitesmoke;
+        resize: none;
+        min-height: 220px;
+        margin-bottom: 10px;
+      }
+      .inputBox input[type="submit"] {
+        background: rgb(107, 128, 155);
+        color: #fff;
+        border: none;
+        font-size: 1em;
+        max-width: 120px;
+        font-weight: 500;
+        cursor: pointer;
+        padding: 10px 15px;
+      }
+      .inputBox ::placeholder {
+        color: #999;
+      }
+      /* Info */
+      .info {
+        background: rgb(107, 128, 155);
+      }
+      .info h3 {
+        color: #fff;
+      }
+      .info .infoBox div {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .info .infoBox div span {
+        min-width: 30px;
+        height: 30px;
+        color: #fff;
+        background: rgb(118, 145, 181);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1em;
+        border-radius: 50%;
+        margin-right: 25px;
+      }
+      .info .infoBox div p {
+        color: #fff;
+        font-size: 0.8em;
+      }
+      .info .infoBox div a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1em;
+        font-size: 0.8em;
+      }
+      .sci {
+        margin-top: 40px;
+        display: flex;
+      }
+      .sci li {
+        list-style: none;
+        margin-right: 15px;
+      }
+      .sci li a {
+        color: #fff;
+        font-size: 1.3em;
+        color: #ccc;
+      }
+      .sci li a:hover {
+        color: #fff;
+      }
+      /* Map */
+      .map {
+        padding: 0;
+      }
+      .map iframe {
+        width: 100%;
+        height: 100%;
+      }
+      /* Responsive Design */
+      @media (max-width: 991px) {
+        body {
+          background: rgb(107, 128, 155);
+        }
+        .contactUs {
+          padding: 20px;
+        }
+        .contactBox {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto;
+          grid-template-areas: "form" "info" "map";
+        }
+
+        .formBox .row50 {
+          display: flex;
+          gap: 0;
+          flex-direction: column;
+        }
+        .inputBox {
+          width: 100%;
+        }
+        .contact {
+          padding: 30px;
+        }
+        .map {
+          min-height: 300px;
+          padding: 0;
+        }
+      }
+
+      .popup {
+        width: 300px;
+        background: whitesmoke;
+        border-radius: 6px;
+        position: absolute;
+        top: 0;
+        left: 80%;
+        transform: translate(-50%, -50%) scale(0.1);
+        text-align: center;
+        padding: 0 30px 30px;
+        color: #333;
+        visibility: hidden;
+        transition: transform 0.4s, top 0.4s;
+      }
+      .open-popup {
+        visibility: visible;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      .popup ion-icon {
+        width: 50px;
+        margin-top: -50px;
+        border-radius: 20px;
+        background-color: rgb(107, 128, 155);
+        color: #fff;
+        font-size: 40px;
+        font-weight: 700;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+      .popup h2 {
+        font-size: 1.5em;
+        font-weight: 500;
+        margin: 30px 0 10px;
+      }
+      .popup button {
+        width: 100%;
+        margin-top: 50px;
+        padding: 10px 0;
+        background: rgb(107, 128, 155);
+        color: #fff;
+        border: 0;
+        outline: none;
+        font-size: 18px;
+        border-radius: 4px;
+        cursor: pointer;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- This is the Welcome Message with FAQ and SiteMap -->
+    <div class="welcome_nav">
+      <div class="welcome_nav_content_wrapper">
+        <p>Step into the world of artisanal crafts and handmade wonders</p>
+        <div class="welcome_nav_action_wrapper">
+          <div><a href="./faq.html" target="_self">FAQs</a></div>
+          <span>|</span>
+          <div><a href="./sitemap.html" target="_self">Site map</a></div>
+        </div>
+      </div>
+    </div>
+    <!-- Navbar and Logo and Icons -->
+    <nav class="navbar">
+      <div class="nav_content_wrapper">
+        <img src="Images/vh-logo.png" class="vh-logo" alt="" />
+
+        <!-- <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <ion-icon name="grid-outline"></ion-icon>
+        </a> -->
+        <ul class="nav_list" id="nav_list">
+          <li><a href="./index.html" target="_self">Home</a></li>
+          <li><a href="./product.html" target="_self">Shop</a></li>
+          <li><a href="./gallery.html" target="_self">Gallery</a></li>
+          <li><a href="./about.html" target="_self">About</a></li>
+          <li><a href="./contact.html" target="_self">Contact</a></li>
+        </ul>
+
+        <div class="nav_icon_wrapper" id="nav_icon_wrapper">
+          <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+          <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+          <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+          <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+        </div>
+      </div>
+    </nav>
+
+    <section
+      class="bg-img"
+      style="
+        background-image: url('Images/green-twig-near-decorative-snags-baubles.jpg');
+      "
+    >
+      <h2 class="txt-center animate__animated animate__rollIn">Contact Us</h2>
+    </section>
+    <!-- Input, Geolocation Part  -->
+    <section class="contactUs" id="contactUs">
+      <div class="contactBox">
+        <!-- Form -->
+        <div class="contact form">
+          <h3>Send a Message</h3>
+          <form action="#">
+            <div class="formBox">
+              <div class="row50">
+                <div class="inputBox">
+                  <span>First Name</span>
+                  <input type="text" placeholder="Abdulbasit" required />
+                </div>
+                <div class="inputBox">
+                  <span>Last Name</span>
+                  <input type="text" placeholder="Dahunsi" required />
+                </div>
+              </div>
+              <div class="row50">
+                <div class="inputBox">
+                  <span>Email</span>
+                  <input
+                    type="email"
+                    placeholder="dahunsiabdulbasit@gmail.com"
+                    required
+                  />
+                </div>
+                <div class="inputBox">
+                  <span>Mobile</span>
+                  <input type="tel" placeholder="09032916634" required />
+                </div>
+              </div>
+              <div class="row100">
+                <div class="inputBox">
+                  <span>Message</span>
+                  <textarea placeholder="Write your message here..."></textarea>
+                </div>
+              </div>
+              <div class="row100">
+                <div class="inputBox">
+                  <input
+                    type="submit"
+                    value="Send"
+                    class="btn"
+                    onclick="openPopup()"
+                  />
+                </div>
+                <div class="popup" id="popup">
+                  <ion-icon name="checkmark-outline"></ion-icon>
+                  <h2>Thank You</h2>
+                  <p>Message has been received. Will get back soon. Thanks!</p>
+                  <button type="button" onclick="closePopup()">OK</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- Info -->
+        <div class="contact info">
+          <h3>Contact Info</h3>
+          <div class="infoBox">
+            <div>
+              <span><ion-icon name="location"></ion-icon></span>
+              <p>New Delhi<br />India</p>
+            </div>
+            <div>
+              <span><ion-icon name="mail"></ion-icon></span>
+              <a href="mailto:dahunsiabdulbasit@gmail.com"
+                >dahunsiabdulbasit@gmail.com</a
+              >
+            </div>
+            <div>
+              <span><ion-icon name="call"></ion-icon></span>
+              <a href="tel:+234 9032916634">+234 9032916634</a>
+            </div>
+            <!-- Social Media Links -->
+            <ul class="sci">
+              <li>
+                <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+              </li>
+              <li>
+                <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+              </li>
+              <li>
+                <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+              </li>
+              <li>
+                <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- Map -->
+        <div class="contact map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.561907193071!2d77.22732101529158!3d28.612916691718837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2daa9eb4d0b%3A0x717971125923e5d!2sIndia%20Gate!5e0!3m2!1sen!2sng!4v1678884876182!5m2!1sen!2sng"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+    <!-- Footer Part -->
+    <footer class="footer" id="footer">
+      <div class="footer-container">
+        <div class="one">
+          <img src="Images/vh-logo.png" class="footer-logo" alt="" />
+          <p>
+            Explore our curated selection of handmade items.<br />
+            Welcome to Venus Handicrafts.
+          </p>
+          <div class="socials">
+            <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+          </div>
+        </div>
+        <div class="two">
+          <h2>Product</h2>
+          <ul class="box">
+            <li><a href="product.html" target="_self">Iron</a></li>
+            <li><a href="product.html" target="_self">Wood</a></li>
+            <li><a href="product.html" target="_self">Candle</a></li>
+            <li><a href="product.html" target="_self">Home Decor</a></li>
+            <li><a href="product.html" target="_self">Brass</a></li>
+          </ul>
+        </div>
+        <div class="three">
+          <h2>Useful Links</h2>
+          <ul class="box">
+            <li><a href="faq.html" target="_self">FAQs</a></li>
+            <li><a href="index.html" target="_self">Home</a></li>
+            <li><a href="product.html" target="_self">Shop</a></li>
+            <li><a href="gallery.html" target="_self">Gallery</a></li>
+            <li><a href="about.html" target="_self">About</a></li>
+            <li><a href="contact.html" target="_self">Contact</a></li>
+          </ul>
+        </div>
+        <div class="four">
+          <h2>Address</h2>
+          <ul class="box">
+            <li>New Delhi</li>
+            <li>United Kingdom</li>
+            <li>London</li>
+            <li>Dubai</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>All Right Reserved by &copy;Venus Handicraft 2023</p>
+      </div>
+    </footer>
+    <!-- Ion Icon cdn -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- js file -->
+    <script src="index.js"></script>
+    <script>
+      let popup = document.getElementById("popup");
+
+      function openPopup() {
+        popup.classList.add("open-popup");
+      }
+      function closePopup() {
+        popup.classList.remove("open-popup");
+      }
+    </script>
+  </body>
+</html>

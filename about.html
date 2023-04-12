@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VH-About</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="shortcut icon" href="Images/user.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <style>
+    
+      .story-container,
+      .mission-container {
+        display: flex;
+        gap: 5rem;
+        width: 80%;
+        margin: 100px auto;
+      }
+      .story,
+      .mission {
+        line-height: 2rem;
+        width: 60%;
+      }
+      .story h2,
+      .mission h2 {
+        font-size: 30px;
+        font-weight: 900;
+
+        margin-bottom: 2rem;
+      }
+      .story p,
+      .mission p {
+        font-size: 15px;
+        color: #888;
+        margin-bottom: 1.5rem;
+      }
+
+      .story-image img,
+      .mission-image img {
+        width: 400px;
+        height: 450px;
+        border: 5px solid whitesmoke;
+      }
+      @media (max-width: 1000px) {
+        .story-container {
+          display: block;
+        }
+        .mission-container {
+          display: flex;
+          flex-direction: column-reverse;
+        }
+        .story,
+        .mission {
+          width: 100%;
+        }
+        .story-image img,
+        .mission-image img {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      @media (max-width: 500px) {
+        .story-image img,
+        .mission-image img {
+          object-fit: contain;
+          height: auto;
+        }
+        .story p,
+        .mission p {
+          margin-bottom: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+      <!-- This is the Welcome Message with FAQ and SiteMap -->
+      <div class="welcome_nav">
+        <div class="welcome_nav_content_wrapper">
+          <p>Step into the world of artisanal crafts and handmade wonders</p>
+          <div class="welcome_nav_action_wrapper">
+            <div><a href="./faq.html" target="_self">FAQs</a></div>
+            <span>|</span>
+            <div><a href="./sitemap.html" target="_self">Site map</a></div>
+          </div>
+        </div>
+      </div>
+      <!-- Navbar and Logo and Icons -->
+      <nav class="navbar">
+        <div class="nav_content_wrapper">
+          <img src="Images/vh-logo.png" class="vh-logo" alt="" />
+  
+          <!-- <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <ion-icon name="grid-outline"></ion-icon>
+          </a> -->
+          <ul class="nav_list" id="nav_list">
+            <li><a href="./index.html" target="_self">Home</a></li>
+            <li><a href="./product.html" target="_self">Shop</a></li>
+            <li><a href="./gallery.html" target="_self">Gallery</a></li>
+            <li><a href="./about.html" target="_self">About</a></li>
+            <li><a href="./contact.html" target="_self">Contact</a></li>
+          </ul>
+  
+          <div class="nav_icon_wrapper" id="nav_icon_wrapper">
+            <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+          </div>
+        </div>
+      </nav>
+
+    <section
+      class="bg-img"
+      style="
+        background-image: url('Images/green-twig-near-decorative-snags-baubles.jpg');
+      "
+    >
+      <h2 class="txt-center animate__animated animate__rollIn">About Us</h2>
+    </section>
+    <!-- About part -->
+    <section class="about">
+      <div class="story-container">
+        <div class="story" id="story">
+          <h2>Our Story</h2>
+          <p>
+            At Venus Handicraft, our story began with a passion for handmade
+            crafts and a desire to share their beauty and value with the world.
+            We started as a small local business, working directly with artisans
+            from our community to showcase their unique creations. As our
+            business grew, so did our mission and reach. Today, we work with
+            artisans from all around the world, and we continue to promote fair
+            trade and sustainable practices in everything we do.
+          </p>
+          <p>
+            Our goal is to make handmade crafts more accessible and affordable
+            for everyone, while also ensuring that the artisans who make them
+            receive the recognition and compensation they deserve. We believe
+            that handmade crafts are not just products, but works of art that
+            tell a story and connect us to the people and cultures behind them.
+            We are proud to support these artisans and to offer our customers
+            the opportunity to own something truly special and meaningful. Thank
+            you for being a part of our story and for supporting handmade crafts
+            at Venus Handicraft.
+          </p>
+        </div>
+        <div class="story-image">
+          <img src="Images/valentines-day-g52cf37efa_640.jpg" alt="" />
+        </div>
+      </div>
+      <div class="mission-container">
+        <div class="mission-image">
+          <img src="Images/hand-g48212ca58_640.jpg.crdownload" alt="" />
+        </div>
+        <div class="mission" id="mission">
+          <h2>Our Mission</h2>
+          <p>
+            At Venus Handicraft, our mission is to support and promote the work
+            of artisans from around the world, while also providing customers
+            with access to unique, high-quality handmade crafts. We are
+            committed to fair trade practices, which means that we work directly
+            with artisans and pay them fair wages for their work. This not only
+            supports the artisans and their families but also helps to preserve
+            traditional crafts and cultural heritage.
+          </p>
+          <p>
+            We are also committed to sustainability and minimizing our impact on
+            the environment. We use eco-friendly materials and packaging
+            whenever possible, and we encourage our artisans to use sustainable
+            production methods. By supporting ethical and sustainable practices,
+            we hope to promote a more just and equitable world, where everyone
+            can benefit from the beauty and value of handmade crafts. Thank you
+            for joining us on this mission, and for supporting our work at Venus
+            Handicraft.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- Footer Part -->
+    <footer class="footer" id="footer">
+      <div class="footer-container">
+        <div class="one">
+          <img src="Images/vh-logo.png" class="footer-logo" alt="" />
+          <p>
+            Explore our curated selection of handmade items.<br />
+            Welcome to Venus Handicrafts.
+          </p>
+          <div class="socials">
+            <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+          </div>
+        </div>
+        <div class="two">
+          <h2>Product</h2>
+          <ul class="box">
+            <li><a href="product.html" target="_self">Iron</a></li>
+            <li><a href="product.html" target="_self">Wood</a></li>
+            <li><a href="product.html" target="_self">Candle</a></li>
+            <li><a href="product.html" target="_self">Home Decor</a></li>
+            <li><a href="product.html" target="_self">Brass</a></li>
+          </ul>
+        </div>
+        <div class="three">
+          <h2>Useful Links</h2>
+          <ul class="box">
+            <li><a href="faq.html" target="_self">FAQs</a></li>
+            <li><a href="index.html" target="_self">Home</a></li>
+            <li><a href="product.html" target="_self">Shop</a></li>
+            <li><a href="gallery.html" target="_self">Gallery</a></li>
+            <li><a href="about.html" target="_self">About</a></li>
+            <li><a href="contact.html" target="_self">Contact</a></li>
+          </ul>
+        </div>
+        <div class="four">
+          <h2>Address</h2>
+          <ul class="box">
+            <li>New Delhi</li>
+            <li>United Kingdom</li>
+            <li>London</li>
+            <li>Dubai</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>All Right Reserved by &copy;Venus Handicraft 2023</p>
+      </div>
+    </footer>
+    <!-- Ion Icon cdn -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- js file -->
+    <script src="index.js"></script>
+  </body>
+</html>
